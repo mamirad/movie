@@ -11,6 +11,8 @@
 
   <body>
     <div class="container">
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete,class: 'btn btn-xs btn-danger' if current_user.present? %>
+
       <%= yield %>
     </div>
   </body>
