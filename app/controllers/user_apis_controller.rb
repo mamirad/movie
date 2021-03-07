@@ -60,13 +60,9 @@ def json_request?
       if @user.present?
         format.json { render json: 'User already exist', status: :ok }
       else
-        unless @user.admin?
           user = User.new(username:params[:username])
           user.save(validate:false)
           format.json { render json: 'New USer Created', status: :ok }
-        else
-          format.json { render json: 'You are admin', status: :ok }
-        end
       end
     end
   end
