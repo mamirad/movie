@@ -6,6 +6,8 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+
+
   # GET /movies/1 or /movies/1.json
   def show
     @favourit_movies_users = @movie.users

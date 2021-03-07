@@ -29,10 +29,14 @@ def json_request?
 
  def mark_as_favourite
   respond_to do |format|
-    FavouriteMovie.create(user_id:@user.id,movie_id:@movie.id)
-    @movie.favorited= @movie.favorited+1
-    @movie.save
-   format.json { render json: "Mark as Favourite Successfully", status: :ok }
+    if @user.present? && @movie.present?
+      FavouriteMovie.create(user_id:@user.id,movie_id:@movie.id)
+      @movie.favorited= @movie.favorited+1
+      @movie.save
+      format.json { render json: "Mark as Favourite Successfully", status: :ok }
+    else
+      format.json { render json: "Invaid user name or movie id", status: :ok }
+    end
 
   end
  end

@@ -1,0 +1,5 @@
+<label><%=@user.username%></label>
+<h4>Favourite Movies</h4>
+<%@fav_movies.each do  |fav_movie|%>
+<%=fav_movie.name%>
+<%end%>

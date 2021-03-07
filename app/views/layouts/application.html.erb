@@ -12,6 +12,9 @@
   <body>
     <div class="container">
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete,class: 'btn btn-xs btn-danger' if current_user.present? %>
+      <%= link_to "View User", readonly_users_path,class: 'btn btn-xs btn-success'%>
+      <%= link_to "View Movies", movies_path,class: 'btn btn-xs btn-warning'%>
+      
 
       <%= yield %>
     </div>

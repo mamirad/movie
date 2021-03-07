@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'read_users', to: 'readonly_users#index', as: 'readonly_users'
+   get 'show/:username', to: 'readonly_users#show',as: 'read_user'
   resources :movies
   devise_for :users
    root  to: 'movies#new', as: 'admin'
