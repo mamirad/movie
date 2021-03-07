@@ -1,0 +1,44 @@
+<%= form_with(model: movie, local: true) do |form| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name,class:'form-control' %>
+  </div>
+  <label>Select Genres</label>
+  <%= form.select :movie_genres,options_for_select(Movie.genres.keys,movie.movie_genres),{},class: 'form-control my_select2',:multiple => true%>
+
+  <div class="form-group">
+    <%= form.label :year %>
+    <%= form.text_field :year,class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :director %>
+    <%= form.text_field :director,class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :main_star %>
+    <%= form.text_field :main_star,class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description,class:'form-control' %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @movie.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @movie.year %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= @movie.director %>
+</p>
+
+<p>
+  <strong>Main star:</strong>
+  <%= @movie.main_star %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movie.description %>
+</p>
+<%if @favourit_movies_users.present?%>
+<h3>Favourite By Users List</h3>
+<ul>
+  <%@favourit_movies_users.each do |user|%>
+  <li><%=user.username%></li>
+  <%end%>
+</ul>
+<%end%>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
